@@ -2,6 +2,10 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Spotico.Server", "Spotico.Server\Spotico.Server.csproj", "{A3BCAB1B-44B6-4CFA-9F38-DBECA9E86DD9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Spotico.Persistence", "Spotico.Persistence\Spotico.Persistence.csproj", "{5E131790-F942-42C4-8328-5D4AB86AA495}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Spotico.Core", "Spotico.Core\Spotico.Core.csproj", "{643CA507-5394-41D3-B33E-4844CBC659F7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +16,13 @@ Global
 		{A3BCAB1B-44B6-4CFA-9F38-DBECA9E86DD9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A3BCAB1B-44B6-4CFA-9F38-DBECA9E86DD9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A3BCAB1B-44B6-4CFA-9F38-DBECA9E86DD9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5E131790-F942-42C4-8328-5D4AB86AA495}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E131790-F942-42C4-8328-5D4AB86AA495}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E131790-F942-42C4-8328-5D4AB86AA495}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E131790-F942-42C4-8328-5D4AB86AA495}.Release|Any CPU.Build.0 = Release|Any CPU
+		{643CA507-5394-41D3-B33E-4844CBC659F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{643CA507-5394-41D3-B33E-4844CBC659F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{643CA507-5394-41D3-B33E-4844CBC659F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{643CA507-5394-41D3-B33E-4844CBC659F7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
