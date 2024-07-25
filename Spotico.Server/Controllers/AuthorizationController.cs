@@ -1,11 +1,10 @@
-using System.IdentityModel.Tokens.Jwt;
-using System.Security.Claims;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
-using Microsoft.IdentityModel.Tokens;
 using Spotico.Core.Models;
 using Spotico.Server.Configurations;
 using Spotico.Server.Data;
+using Spotico.Server.Services;
 
 namespace Spotico.Server.Controllers;
 
@@ -14,53 +13,30 @@ namespace Spotico.Server.Controllers;
 public class AuthorizationController : ControllerBase
 {
     private readonly SpoticoDbContext _db;
-    private readonly IOptions<AuthOptions> _options;
+    private readonly TokenService _tokenService;
     
-    public AuthorizationController(SpoticoDbContext db, IOptions<AuthOptions> options)
-    {   
+    public AuthorizationController(SpoticoDbContext db, TokenService tokenService)
+    {
         _db = db;
-        _options = options;
+         _tokenService = tokenService;
     }
     
     [HttpPost]
     public async Task<IActionResult> Login(LoginForm request)
     {
-        var user = Authenticate(request.Username, request.Password);
+        var user = ValidateUserCredentials(request);
         
         if (user == null) return Unauthorized();
         
-        var token = GenerateToken(user);
+        var token = _tokenService.GenerateToken(user);
         
         return Ok(new { AccessToken = token });
     }
      
-    private User Authenticate(string username, string password)
+    private User ValidateUserCredentials(LoginForm form)
     {
-        var user = _db.Users.FirstOrDefault(u => u.Username == username && u.Password == password);
+        var user = _db.Users
+            .SingleOrDefault(u => u.Username == form.Username && u.Password == form.Password);
         return user;
-    }
-
-    private string GenerateToken(User user)
-    {
-        var authParams = _options.Value;
-
-        var securityKey = authParams.GetSymmetricSecurityKey();
-        var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
-
-        var claims = new List<Claim>()
-        {
-            new Claim(JwtRegisteredClaimNames.Name, user.Username),
-            new Claim(JwtRegisteredClaimNames.Sub, user.Id.ToString()),
-            new Claim(ClaimTypes.Role, UserRole.User)
-        };
-
-        var token = new JwtSecurityToken(
-            authParams.Issuer,
-            authParams.Audience,
-            claims,
-            expires: DateTime.Now.AddSeconds(authParams.TokenLifetime),
-            signingCredentials: credentials);
-
-        return new JwtSecurityTokenHandler().WriteToken(token);
     }
 }
