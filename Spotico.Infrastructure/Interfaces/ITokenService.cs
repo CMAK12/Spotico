@@ -2,7 +2,7 @@
 
 namespace Spotico.Infrastructure.Interfaces;
 
-public interface IJwtProvider
+public interface ITokenService
 {
     string GenerateToken(User user);
 }

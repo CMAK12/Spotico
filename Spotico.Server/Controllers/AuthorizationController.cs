@@ -12,12 +12,12 @@ namespace Spotico.Server.Controllers;
 public class AuthorizationController : ControllerBase
 {
     private readonly SpoticoDbContext _db;
-    private readonly IJwtProvider _jwtProvider;
+    private readonly ITokenService _tokenService;
     
-    public AuthorizationController(SpoticoDbContext db, IJwtProvider jwtProvider)
+    public AuthorizationController(SpoticoDbContext db, ITokenService tokenService)
     {
         _db = db;
-         _jwtProvider = jwtProvider;
+         _tokenService = tokenService;
     }
     
     [HttpPost]
@@ -27,7 +27,7 @@ public class AuthorizationController : ControllerBase
         
         if (user == null) return Unauthorized();
         
-        var token = _jwtProvider.GenerateToken(user);
+        var token = _tokenService.GenerateToken(user);
         
         return Ok(new { AccessToken = token });
     }

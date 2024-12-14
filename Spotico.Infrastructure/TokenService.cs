@@ -9,12 +9,12 @@ using Spotico.Infrastructure.Interfaces;
 
 namespace Spotico.Infrastructure;
 
-public class JwtProvider : IJwtProvider
+public class TokenService : ITokenService
 {
     private readonly SpoticoDbContext _db;
     private readonly IOptions<AuthOptions> _options;
     
-    public JwtProvider(SpoticoDbContext db, IOptions<AuthOptions> options)
+    public TokenService(SpoticoDbContext db, IOptions<AuthOptions> options)
     {   
         _db = db;
         _options = options;

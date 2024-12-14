@@ -16,7 +16,7 @@ builder.Services.Configure<AuthOptions>(configuration.GetSection("Auth"));
 builder.Services.AddControllers();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddScoped<IJwtProvider, JwtProvider>();
+builder.Services.AddScoped<ITokenService, TokenService>();
 builder.Services.AddScoped<IUserStore, UserRepository>();
 
 builder.Services.AddCors();
