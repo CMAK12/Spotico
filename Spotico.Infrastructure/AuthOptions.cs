@@ -1,7 +1,7 @@
 ﻿using Microsoft.IdentityModel.Tokens;
 using System.Text;
 
-namespace Spotico.Server.Configurations
+namespace Spotico.Infrastructure
 {
     public class AuthOptions
     {

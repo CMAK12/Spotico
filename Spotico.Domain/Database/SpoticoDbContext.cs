@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using Spotico.Core.Models;
 
-namespace Spotico.Server.Data;
+namespace Spotico.Core.Database;
 
 public class SpoticoDbContext : DbContext
 {

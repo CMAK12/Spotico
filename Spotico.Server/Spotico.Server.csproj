@@ -22,7 +22,9 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\Spotico.Core\Spotico.Core.csproj" />
+      <ProjectReference Include="..\Spotico.Domain\Spotico.Domain.csproj" />
+      <ProjectReference Include="..\Spotico.Infrastructure\Spotico.Infrastructure.csproj" />
+      <ProjectReference Include="..\Spotico.Persistence\Spotico.Persistence.csproj" />
     </ItemGroup>
 
 </Project>

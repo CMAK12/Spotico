@@ -1,8 +1,8 @@
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
+using Spotico.Core.Database;
 using Spotico.Core.Models;
-using Spotico.Server.Repositories;
-using Spotico.Server.Data;
+using Spotico.Core.Stores;
+using Spotico.Persistence;
 
 namespace Spotico.Server.Controllers;
 
@@ -10,21 +10,11 @@ namespace Spotico.Server.Controllers;
 [Route("api/[controller]")]
 public class CustomerController : ControllerBase
 {
-    private readonly SpoticoDbContext _db;
-    private readonly UserRepository _userRepository;
+    private readonly IUserStore _userRepository;
     
     public CustomerController(SpoticoDbContext db, UserRepository userRepository)
     {
-        _db = db;
         _userRepository = userRepository;
-    }
-    
-    [HttpGet]
-    public async Task<IActionResult> Get()
-    {
-        var customers = await _db.Users.ToListAsync();
-        
-        return Ok(customers);
     }
     
     [HttpGet("{id}")]

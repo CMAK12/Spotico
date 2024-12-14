@@ -1,12 +1,11 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
-using Spotico.Core.Models;
-using Spotico.Server.Configurations;
-using Spotico.Server.Data;
-using Spotico.Server.Repositories;
-using Spotico.Server.Services;
+using Spotico.Core.Database;
+using Spotico.Core.Stores;
+using Spotico.Infrastructure;
+using Spotico.Infrastructure.Interfaces;
+using Spotico.Persistence;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,8 +16,8 @@ builder.Services.Configure<AuthOptions>(configuration.GetSection("Auth"));
 builder.Services.AddControllers();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddScoped<TokenService>();
-builder.Services.AddScoped<UserRepository>();
+builder.Services.AddScoped<IJwtProvider, JwtProvider>();
+builder.Services.AddScoped<IUserStore, UserRepository>();
 
 builder.Services.AddCors();
 

@@ -2,7 +2,11 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Spotico.Server", "Spotico.Server\Spotico.Server.csproj", "{A3BCAB1B-44B6-4CFA-9F38-DBECA9E86DD9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Spotico.Core", "Spotico.Core\Spotico.Core.csproj", "{643CA507-5394-41D3-B33E-4844CBC659F7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Spotico.Domain", "Spotico.Domain\Spotico.Domain.csproj", "{643CA507-5394-41D3-B33E-4844CBC659F7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Spotico.Infrastructure", "Spotico.Infrastructure\Spotico.Infrastructure.csproj", "{FF607122-89FE-4E55-9B7B-519F3BCEC22C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Spotico.Persistence", "Spotico.Persistence\Spotico.Persistence.csproj", "{DB1C7979-1DF0-47F6-BF23-6E4CDD3C89FB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -18,5 +22,13 @@ Global
 		{643CA507-5394-41D3-B33E-4844CBC659F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{643CA507-5394-41D3-B33E-4844CBC659F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{643CA507-5394-41D3-B33E-4844CBC659F7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FF607122-89FE-4E55-9B7B-519F3BCEC22C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF607122-89FE-4E55-9B7B-519F3BCEC22C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF607122-89FE-4E55-9B7B-519F3BCEC22C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF607122-89FE-4E55-9B7B-519F3BCEC22C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DB1C7979-1DF0-47F6-BF23-6E4CDD3C89FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB1C7979-1DF0-47F6-BF23-6E4CDD3C89FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB1C7979-1DF0-47F6-BF23-6E4CDD3C89FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB1C7979-1DF0-47F6-BF23-6E4CDD3C89FB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

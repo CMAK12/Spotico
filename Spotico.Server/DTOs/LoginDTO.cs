@@ -1,6 +1,6 @@
-namespace Spotico.Core.Models;
+﻿namespace Spotico.Server.DTOs;
 
-public class LoginForm
+public class LoginDTO
 {
     public string Username { get; set; }
     public string Password { get; set; }

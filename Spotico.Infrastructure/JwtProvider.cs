@@ -2,18 +2,19 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
+using Spotico.Core.Common.Enums;
 using Spotico.Core.Models;
-using Spotico.Server.Configurations;
-using Spotico.Server.Data;
+using Spotico.Core.Database;
+using Spotico.Infrastructure.Interfaces;
 
-namespace Spotico.Server.Services;
+namespace Spotico.Infrastructure;
 
-public class TokenService
+public class JwtProvider : IJwtProvider
 {
     private readonly SpoticoDbContext _db;
     private readonly IOptions<AuthOptions> _options;
     
-    public TokenService(SpoticoDbContext db, IOptions<AuthOptions> options)
+    public JwtProvider(SpoticoDbContext db, IOptions<AuthOptions> options)
     {   
         _db = db;
         _options = options;
@@ -30,7 +31,7 @@ public class TokenService
         {
             new Claim(JwtRegisteredClaimNames.Name, user.Username),
             new Claim(JwtRegisteredClaimNames.Sub, user.Id.ToString()),
-            new Claim(ClaimTypes.Role, UserRole.User)
+            new Claim(ClaimTypes.Role, nameof(UserRole.User))
         };
 
         var token = new JwtSecurityToken(

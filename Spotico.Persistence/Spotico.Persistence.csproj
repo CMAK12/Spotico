@@ -6,4 +6,8 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\Spotico.Domain\Spotico.Domain.csproj" />
+    </ItemGroup>
+
 </Project>

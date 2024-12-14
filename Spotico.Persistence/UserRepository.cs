@@ -1,9 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Spotico.Core.Database;
 using Spotico.Core.Stores;
 using Spotico.Core.Models;
-using Spotico.Server.Data;
 
-namespace Spotico.Server.Repositories;
+namespace Spotico.Persistence;
     
 public class UserRepository : IUserStore
 {

@@ -1,10 +1,9 @@
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Options;
+using Spotico.Core.Database;
 using Spotico.Core.Models;
-using Spotico.Server.Configurations;
-using Spotico.Server.Data;
-using Spotico.Server.Services;
+using Spotico.Infrastructure;
+using Spotico.Infrastructure.Interfaces;
+using Spotico.Server.DTOs;
 
 namespace Spotico.Server.Controllers;
 
@@ -13,27 +12,27 @@ namespace Spotico.Server.Controllers;
 public class AuthorizationController : ControllerBase
 {
     private readonly SpoticoDbContext _db;
-    private readonly TokenService _tokenService;
+    private readonly IJwtProvider _jwtProvider;
     
-    public AuthorizationController(SpoticoDbContext db, TokenService tokenService)
+    public AuthorizationController(SpoticoDbContext db, IJwtProvider jwtProvider)
     {
         _db = db;
-         _tokenService = tokenService;
+         _jwtProvider = jwtProvider;
     }
     
     [HttpPost]
-    public async Task<IActionResult> Login(LoginForm request)
+    public async Task<IActionResult> Login(LoginDTO request)
     {
         var user = ValidateUserCredentials(request);
         
         if (user == null) return Unauthorized();
         
-        var token = _tokenService.GenerateToken(user);
+        var token = _jwtProvider.GenerateToken(user);
         
         return Ok(new { AccessToken = token });
     }
      
-    private User ValidateUserCredentials(LoginForm form)
+    private User ValidateUserCredentials(LoginDTO form)
     {
         var user = _db.Users
             .SingleOrDefault(u => u.Username == form.Username && u.Password == form.Password);
