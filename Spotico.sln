@@ -8,6 +8,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Spotico.Infrastructure", "S
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Spotico.Persistence", "Spotico.Persistence\Spotico.Persistence.csproj", "{DB1C7979-1DF0-47F6-BF23-6E4CDD3C89FB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Spotico.Tests", "Spotico.Tests\Spotico.Tests.csproj", "{7758B791-6D13-41D7-B573-71C192F6EF7E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,5 +32,9 @@ Global
 		{DB1C7979-1DF0-47F6-BF23-6E4CDD3C89FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DB1C7979-1DF0-47F6-BF23-6E4CDD3C89FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DB1C7979-1DF0-47F6-BF23-6E4CDD3C89FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7758B791-6D13-41D7-B573-71C192F6EF7E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7758B791-6D13-41D7-B573-71C192F6EF7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7758B791-6D13-41D7-B573-71C192F6EF7E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7758B791-6D13-41D7-B573-71C192F6EF7E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

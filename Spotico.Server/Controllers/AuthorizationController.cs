@@ -1,7 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Spotico.Core.Database;
 using Spotico.Core.Models;
-using Spotico.Infrastructure;
 using Spotico.Infrastructure.Interfaces;
 using Spotico.Server.DTOs;
 

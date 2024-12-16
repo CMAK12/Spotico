@@ -4,9 +4,9 @@ namespace Spotico.Core.Stores;
 
 public interface IUserStore
 {
-    Task<User> GetById(Guid id);
+    Task<User> GetByIdAsync(Guid id);
 
-    Task Add(User user);
+    Task AddAsync(User user);
     
-    Task Delete(Guid id);
+    Task DeleteAsync(Guid id);
 }
