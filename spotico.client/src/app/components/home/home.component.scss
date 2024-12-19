@@ -1,0 +1,48 @@
+.main-content {
+    flex: 1;
+    overflow-y: auto;
+    background-color: #121212;
+  }
+
+  h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 24px;
+  }
+
+  .track-flex {
+    display: flex;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 24px;
+  }
+
+  .track-item {
+    flex: 1;
+    background-color: #181818;
+    padding: 16px;
+    border-radius: 8px;
+    transition: background-color 0.3s;
+  }
+
+  .track-item:hover {
+    background-color: #282828;
+  }
+
+  .track-item img {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    margin-bottom: 16px;
+    border-radius: 4px;
+  }
+
+  .track-item h3 {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 8px;
+  }
+  
+  .track-item p {
+    font-size: 14px;
+    color: #b3b3b3;
+  }

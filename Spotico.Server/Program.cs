@@ -64,7 +64,7 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.UseCors(builder => builder
-    .AllowAnyOrigin()
+    .WithOrigins("http://localhost:4200") // Default Angular port
     .AllowAnyMethod()
     .AllowAnyHeader()
 );

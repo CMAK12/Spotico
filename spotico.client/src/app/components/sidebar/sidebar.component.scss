@@ -1,0 +1,133 @@
+
+.container {
+    display: flex;
+    flex-direction: row;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar li, .playlist-actions button {
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    color: rgb(156 163 175);
+    gap: 8px; /* distance between icon and text */
+    padding: 8px 0; /* idents for better reading */
+    transition: color 0.2s; /* smooth color transition */
+}
+
+.sidebar li:hover, .playlist-actions button:hover {
+    cursor: pointer;
+    color: white;
+}
+
+.sidebar li i,
+.sidebar li svg {
+    flex-shrink: 0; /* prevents icon compression */
+}
+
+.playlist-actions {
+    margin-top: 24px;
+}
+
+.playlist-actions button {
+    background: none;
+    border: none;
+    font-family: 'Geist Mono', sans-serif;
+    color: #b3b3b3;
+    cursor: pointer;
+}
+
+.playlist-actions button:hover {
+    cursor: pointer;
+    color: white;
+}
+
+.sidebar {
+    background: var(--content);
+    color: white;
+    border-radius: 8px;
+    margin: 8px;
+    margin-top: 0;
+    height: 89vh;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.sidebar section {
+    margin: 0;
+    margin-bottom: 20px;
+}
+
+.sidebar .icon-text {
+    display: flex;
+    align-items: center;
+}
+
+.sidebar .button-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.sidebar .playlist-filter {
+    margin-top: 25px;
+}
+
+.sidebar .playlist-filter span {
+    background-color: #333333;
+    padding: 4px 12px;
+    border-radius: 30px;
+    margin-right: 8px;
+    font-size: 14px;
+}
+
+.playlists {
+    margin-top: 24px;
+}
+
+.playlists h2 {
+    font-size: 12px;
+    text-transform: uppercase;
+    color: #b3b3b3;
+    margin-bottom: 16px;
+}
+
+.sidebar .playlist-card {
+    display: flex;
+    flex-direction: row;
+    padding: 8px;
+    padding-right: 0;
+    width: 100%;
+    background: none;   
+    transition: background 0.3s;
+}
+
+.sidebar .playlist-card:hover {
+    background: var(--element);
+    border-radius: 4px;
+    transition: background 0.3s;
+}
+
+.sidebar .playlist-image img {
+    border-radius: 4px;
+}
+
+.sidebar .playlist-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding-left: 10px;
+} 
+
+.sidebar .playlist-info .title {
+    font-size: 1rem;
+    color: white;
+} 
+
+.sidebar .playlist-info .created-by {
+    color: var(--font-color);
+}

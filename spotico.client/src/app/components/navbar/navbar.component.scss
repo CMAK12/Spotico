@@ -1,0 +1,83 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--background-color);
+    padding: 10px 20px;
+    height: 50px;
+}
+
+.navbar .home-button {
+    text-decoration: none;
+    margin-right: 5px;
+    width: 48px;
+    background: var(--element);
+    height: 48px;
+    border: none;
+    border-radius: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.home-button svg {
+    width: 22px;
+    fill: #8D8D8D;
+    height: 22px;
+    transition-duration: 0.3s;
+}
+
+.home-button:hover svg {
+    fill: white;
+    transition-duration: 0.3s;
+}
+
+.search-container {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-container .search-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+}
+
+.search-wrapper input::placeholder {
+    font-family: 'Geist Mono', sans-serif;
+}
+
+.search-container input[type="search"] {
+    padding: 10px;
+    width: 100%;
+    background-color: var(--element);
+    color: var(--font-color);
+    padding-left: 40px;
+    font-size: 16px;
+    border: none;
+    border-radius: 24px;
+    box-sizing: border-box;
+    height: 3em;
+}
+
+.search-container input[type="search"]:focus {
+    outline: 2px solid white;
+}
+
+.search-wrapper::before {
+    content: "\f002";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--font-color);
+}
+
+.navbar .user-icon {
+    color: white;
+    font-size: 24px;
+}
