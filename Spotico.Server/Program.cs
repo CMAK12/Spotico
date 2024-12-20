@@ -18,6 +18,8 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddScoped<ITokenService, TokenService>();
 builder.Services.AddScoped<IUserStore, UserRepository>();
+builder.Services.AddScoped<IPlaylistStore, PlaylistRepository>();
+builder.Services.AddScoped<ITrackStore, TrackRepository>();
 
 builder.Services.AddCors();
 
