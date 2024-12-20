@@ -1,0 +1,34 @@
+/* Body */
+
+.container {
+    display: flex;
+    flex-direction: row;
+    gap: 8px; /* Adds spacing between the sidebar and main body */
+    height: 100vh; /* Ensures the container takes up the full viewport height */
+    box-sizing: border-box;
+}
+
+app-sidebar {
+    flex: 1; /* Sidebar width */
+}
+
+main {
+    background: var(--content);
+    border-radius: 8px;
+    flex: 3; /* Fills the remaining space next to the sidebar */
+    padding: 20px;
+    color: white;
+    margin: 0 10px 0 0;
+    height: 89vh; /* Ensures the main content takes up the full viewport height */
+    box-sizing: border-box;
+    overflow-y: auto; /* Allows scrolling if content exceeds the height */
+}
+
+
+main .section {
+    background-color: lightblue;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 5px;
+    box-sizing: border-box;
+}

@@ -6,6 +6,8 @@ using Spotico.Server.DTOs;
 
 namespace Spotico.Server.Controllers;
 
+[ApiController]
+[Route("api/[controller]")]
 public class TrackController : ControllerBase
 {
     private readonly ITrackStore _trackStore;

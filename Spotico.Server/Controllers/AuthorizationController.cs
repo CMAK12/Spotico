@@ -28,13 +28,13 @@ public class AuthorizationController : ControllerBase
         
         var token = _tokenService.GenerateToken(user);
         
-        return Ok(new { AccessToken = token });
+        return Ok(new { access_token = token });
     }
      
     private User ValidateUserCredentials(LoginDTO form)
     {
         var user = _db.Users
-            .SingleOrDefault(u => u.Username == form.Username && u.Password == form.Password);
+            .SingleOrDefault(u => u.Email == form.Email && u.Password == form.Password);
         return user;
     }
 }

@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "spotico.client": {
+    "Spotico.Client": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -34,12 +34,7 @@
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": [],
-            "server": "src/main.server.ts",
-            "prerender": true,
-            "ssr": {
-              "entry": "server.ts"
-            }
+            "scripts": []
           },
           "configurations": {
             "production": {
@@ -69,10 +64,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "spotico.client:build:production"
+              "buildTarget": "Spotico.Client:build:production"
             },
             "development": {
-              "buildTarget": "spotico.client:build:development"
+              "buildTarget": "Spotico.Client:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -105,6 +100,6 @@
     }
   },
   "cli": {
-    "analytics": "0e85baca-33f0-4daa-b1be-5512c17d78da"
+    "analytics": false
   }
 }

@@ -14,6 +14,8 @@
   </div>
 
   <div class="user-icon">
-    <i class="fa fa-user"></i>
+    <i class="fa fa-user" *ngIf="!authService.isAuthenticated" routerLink="/auth/login"></i>
+    <!-- Temporary button for testing -->
+    <button *ngIf="authService.isAuthenticated" (click)="authService.logout()">logout</button>
   </div>
 </header>

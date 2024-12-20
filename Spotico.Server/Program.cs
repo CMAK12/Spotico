@@ -69,6 +69,7 @@ app.UseCors(builder => builder
     .WithOrigins("http://localhost:4200") // Default Angular port
     .AllowAnyMethod()
     .AllowAnyHeader()
+    .AllowCredentials()
 );
 
 app.UseAuthentication();

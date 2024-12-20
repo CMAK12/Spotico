@@ -1,0 +1,127 @@
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    background-color: #121212;
+}
+.login-card {
+    background-color: #181818;
+    padding: 40px;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 400px;
+}
+h2 {
+    display: flex;
+    justify-content: center;
+    color: #fff;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+.subtitle {
+    color: #b3b3b3;
+    margin-bottom: 20px;
+}
+.form-group {
+    margin-bottom: 20px;
+}
+label {
+    display: block;
+    color: #fff;
+    margin-bottom: 5px;
+}
+input {
+    width: 100%;
+    padding: 10px;
+    background-color: #282828;
+    border: 1px solid #282828;
+    color: #fff;
+    border-radius: 4px;
+}
+
+input[type="email"], input[type="password"] {
+    font-size: 16px;
+    font-family: 'Geist Mono', monospace;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #1db954;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+button:disabled {
+    background-color: #1a5e2f;
+    cursor: not-allowed;
+}
+.forgot-password {
+    display: block;
+    text-align: center;
+    color: #b3b3b3;
+    margin-top: 20px;
+    text-decoration: none;
+}
+.divider {
+    text-align: center;
+    margin: 20px 0;
+    color: #b3b3b3;
+}
+.divider::before,
+.divider::after {
+    content: "";
+    display: inline-block;
+    width: 20%;
+    border-top: 1px solid #282828;
+    vertical-align: middle;
+    margin: 0 10px;
+}
+
+@media (max-width: 390px) {
+    .divider::before, .divider::after {
+        width: 0%;
+    }    
+}
+
+.login-link {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    color: #b3b3b3;
+    margin-top: 20px;
+  }
+  .login-link a {
+    color: #fff;
+    text-decoration: none;
+  }
+
+.social-login {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+.social-btn {
+    padding: 10px;
+    background-color: #282828;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.social-btn i {
+    margin-right: 10px;
+}
+.twitter:hover {
+    background-color: #1da1f2;
+}
+.github:hover {
+    background-color: #333;
+}

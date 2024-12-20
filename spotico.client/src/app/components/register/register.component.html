@@ -1,0 +1,26 @@
+<div class="register-container">
+    <div class="register-card">
+      <h2>Create your Spotico account</h2>
+      <p class="subtitle">Sign up to start listening</p>
+      <form>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" formControlName="email" placeholder="your@email.com" required>
+        </div>
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" id="Username" formControlName="Username" placeholder="Enter a profile name" required>
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" formControlName="password" placeholder="Create a password" required>
+        </div>
+        <div class="form-group">
+            <label for="confirmPassword">Confirm Password</label>
+            <input type="password" id="confirmPassword" formControlName="confirmPassword" placeholder="Confirm Password" required>
+        </div>
+        <button type="submit">Sign Up</button>
+      </form>
+      <p class="login-link">Already have an account? <a href="/auth/login">Log in</a></p>
+    </div>
+</div>
