@@ -1,10 +1,10 @@
 <div class="main-content">
-    <h2>Recently Played</h2>
-    <div class="track-flex">
-      <div *ngFor="let track of recentlyPlayed" class="track-item">
-        <img [src]="track.cover" [alt]="track.title">
-        <h3>{{ track.title }}</h3>
-        <p>{{ track.artist }}</p>
-      </div>
+  <h2>Recently Played</h2>
+  <div class="track-grid">
+    <div *ngFor="let track of recentlyPlayed | slice:0:5" class="track-item">
+      <img [src]="track.cover" [alt]="track.title">
+      <h3 class="track-title">{{ track.title }}</h3>
+      <p class="track-artist">{{ track.artist }}</p>
     </div>
   </div>
+</div>

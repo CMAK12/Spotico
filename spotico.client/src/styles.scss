@@ -17,3 +17,7 @@ body {
 button {
     cursor: pointer;
 }
+
+.non-selectable {
+    user-select: none;
+}

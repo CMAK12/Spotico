@@ -14,15 +14,19 @@ nav ul {
     display: flex;
     align-items: center;
     font-size: 18px;
+    width: fit-content;
+    max-width: 100%;
     color: rgb(156 163 175);
     gap: 8px; /* distance between icon and text */
     padding: 8px 0; /* idents for better reading */
-    transition: color 0.2s; /* smooth color transition */
+    transition: 0.2s; /* smooth color transition */
 }
 
 .sidebar li:hover, .playlist-actions button:hover {
     cursor: pointer;
+    font-size: 20px;
     color: white;
+    transition: font-size 0.2s; /* smooth font size transition */
 }
 
 .sidebar li i,
@@ -86,6 +90,9 @@ nav ul {
 }
 
 .playlists {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
     margin-top: 24px;
 }
 

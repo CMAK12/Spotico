@@ -1,48 +1,75 @@
 .main-content {
-    flex: 1;
-    overflow-y: auto;
-    background-color: #121212;
-  }
+  overflow-y: auto;
+  background-color: #121212;
+  padding: 20px;
+  box-sizing: border-box;
+}
 
-  h2 {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 24px;
-  }
+h2 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 24px;
+}
 
-  .track-flex {
-    display: flex;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 24px;
-  }
+.track-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); /* Exactly 5 columns */
+  gap: 24px; /* Space between tracks */
+}
 
-  .track-item {
-    flex: 1;
-    background-color: #181818;
-    padding: 16px;
-    border-radius: 8px;
-    transition: background-color 0.3s;
+@media (max-width: 1200px) {
+  .track-grid {
+      grid-template-columns: repeat(4, 1fr); /* 4 columns for medium screens */
   }
+}
 
-  .track-item:hover {
-    background-color: #282828;
+@media (max-width: 900px) {
+  .track-grid {
+      grid-template-columns: repeat(3, 1fr); /* 3 columns for smaller screens */
   }
+}
 
-  .track-item img {
-    width: 100%;
-    aspect-ratio: 1;
-    object-fit: cover;
-    margin-bottom: 16px;
-    border-radius: 4px;
+@media (max-width: 600px) {
+  .track-grid {
+      grid-template-columns: repeat(2, 1fr); /* 2 columns for mobile screens */
   }
+}
 
-  .track-item h3 {
-    font-size: 16px;
-    font-weight: bold;
-    margin-bottom: 8px;
+@media (max-width: 400px) {
+  .track-grid {
+      grid-template-columns: 1fr; /* 1 column for very small screens */
   }
-  
-  .track-item p {
-    font-size: 14px;
-    color: #b3b3b3;
-  }
+}
+
+
+.track-item {
+  background-color: #181818;
+  padding: 16px;
+  border-radius: 8px;
+  transition: background-color 0.3s;
+}
+
+.track-item:hover {
+  background-color: #282828;
+}
+
+.track-item img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  margin-bottom: 16px;
+  border-radius: 4px;
+}
+
+.track-title {
+  font-size: 14px;
+  height: 36px;
+  width: 100%;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.track-artist {
+  font-size: 14px;
+  color: #b3b3b3;
+}
