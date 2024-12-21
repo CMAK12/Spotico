@@ -20,5 +20,16 @@ export class HomeComponent {
     { title: '92', artist: 'Валентин Стрыкало', cover: 'https://images.genius.com/8dc46c831d67172c02afe05d921747dd.1000x1000x1.png' },
     { title: '92', artist: 'Валентин Стрыкало', cover: 'https://images.genius.com/8dc46c831d67172c02afe05d921747dd.1000x1000x1.png' },
     { title: '92', artist: 'Валентин Стрыкало', cover: 'https://images.genius.com/8dc46c831d67172c02afe05d921747dd.1000x1000x1.png' },
+    { title: '92', artist: 'Валентин Стрыкало', cover: 'https://images.genius.com/8dc46c831d67172c02afe05d921747dd.1000x1000x1.png' },
+    { title: '92', artist: 'Валентин Стрыкало', cover: 'https://images.genius.com/8dc46c831d67172c02afe05d921747dd.1000x1000x1.png' },
+    { title: '92', artist: 'Валентин Стрыкало', cover: 'https://images.genius.com/8dc46c831d67172c02afe05d921747dd.1000x1000x1.png' },
+    { title: '92', artist: 'Валентин Стрыкало', cover: 'https://images.genius.com/8dc46c831d67172c02afe05d921747dd.1000x1000x1.png' },
+    { title: '92', artist: 'Валентин Стрыкало', cover: 'https://images.genius.com/8dc46c831d67172c02afe05d921747dd.1000x1000x1.png' },
+    { title: '92', artist: 'Валентин Стрыкало', cover: 'https://images.genius.com/8dc46c831d67172c02afe05d921747dd.1000x1000x1.png' },
+    { title: '92', artist: 'Валентин Стрыкало', cover: 'https://images.genius.com/8dc46c831d67172c02afe05d921747dd.1000x1000x1.png' },
+    { title: '92', artist: 'Валентин Стрыкало', cover: 'https://images.genius.com/8dc46c831d67172c02afe05d921747dd.1000x1000x1.png' },
+    { title: '92', artist: 'Валентин Стрыкало', cover: 'https://images.genius.com/8dc46c831d67172c02afe05d921747dd.1000x1000x1.png' },
+    { title: '92', artist: 'Валентин Стрыкало', cover: 'https://images.genius.com/8dc46c831d67172c02afe05d921747dd.1000x1000x1.png' },
+    { title: '92', artist: 'Валентин Стрыкало', cover: 'https://images.genius.com/8dc46c831d67172c02afe05d921747dd.1000x1000x1.png' },
   ]
 }

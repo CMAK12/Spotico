@@ -2,6 +2,7 @@
     <div class="login-card">
       <h2>Login to Spotico</h2>
       <p class="subtitle">Enter your credentials to access your account</p>
+      
       <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
         <div class="form-group">
           <label for="email">Email</label>
@@ -13,10 +14,13 @@
         </div>
         <button type="submit">Log In</button>
       </form>
+
       <p class="login-link">Don't have an account?&nbsp;<a href="/auth/register">Sign up</a></p>
+
       <div class="divider">
         <span>Or continue with</span>
       </div>
+      
       <!-- Temporary useless -->
       <div class="social-login">
         <button class="social-btn twitter">
