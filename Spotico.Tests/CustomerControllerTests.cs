@@ -55,4 +55,39 @@ public class CustomerControllerTests
         // Assert
         Assert.IsType<NotFoundResult>(result);
     }
+
+    [Fact]
+    public async Task PostCustomer_ReturnsOk_WhenCustomerIsCreated()
+    {
+        // Arrange
+        var userDto = new UserDTO()
+        {
+            Email = "test@example.com",
+            Password = "string",
+            Username = "TestUser"
+        };
+        var mockUserStore = new Mock<IUserStore>();
+        var controller = new CustomerController(mockUserStore.Object);
+
+        // Act
+        await controller.Post(userDto);
+
+        // Assert
+        mockUserStore.Verify(repo => repo.AddAsync(It.IsAny<User>()), Times.Once);
+    }
+
+    [Fact]
+    public async Task DeleteCustomer_ReturnsOk_WhenCustomerExists()
+    {
+        // Arrange
+        var playlistId = Guid.NewGuid();
+        var mockUserStore = new Mock<IUserStore>();
+        var controller = new CustomerController(mockUserStore.Object);
+
+        // Act
+        await controller.Delete(playlistId);
+
+        // Assert
+        mockUserStore.Verify(repo => repo.DeleteAsync(playlistId), Times.Once);
+    }
 }

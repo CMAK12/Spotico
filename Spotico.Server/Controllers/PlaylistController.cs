@@ -28,7 +28,7 @@ public class PlaylistController : ControllerBase
     public async Task<IActionResult> Get(Guid id)
     {
         var playlist = await _playlistStore.GetByIdAsync(id);
-        return Ok(playlist);
+        return playlist != null ? Ok(playlist) : NotFound();
     }
     
     [HttpPost]
