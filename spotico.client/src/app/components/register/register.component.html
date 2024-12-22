@@ -2,14 +2,14 @@
     <div class="register-card">
       <h2>Create your Spotico account</h2>
       <p class="subtitle">Sign up to start listening</p>
-      <form>
+      <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
         <div class="form-group">
           <label for="email">Email</label>
           <input type="email" id="email" formControlName="email" placeholder="your@email.com" required>
         </div>
         <div class="form-group">
             <label for="username">Username</label>
-            <input type="text" id="Username" formControlName="Username" placeholder="Enter a profile name" required>
+            <input type="text" id="Username" formControlName="username" placeholder="Enter a profile name" required>
         </div>
         <div class="form-group">
           <label for="password">Password</label>

@@ -35,6 +35,12 @@ export class AuthService {
     return token !== null && !this.jwtHelper.isTokenExpired(token); // Check if the token is expired
   }
 
+  extractUsername(): string {
+    const token = this.cookieService.get(ACCESS_TOKEN_KEY); // Get the access token from cookies
+    const decodedToken = this.jwtHelper.decodeToken(token); // Decode the token
+    return decodedToken['name']; // Extract the username from the token
+  }
+
   logout(): void {
     this.cookieService.delete(ACCESS_TOKEN_KEY, '/'); // Delete the access token from cookies
   }

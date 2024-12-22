@@ -1,9 +1,13 @@
-import { UUID } from "crypto";
+import { v4 as uuid } from "uuid";
 
 export class User {
-  id: UUID;
+  id: string;
   username: string;
   email: string;
   password: string;
   role: string;
+
+  constructor() {
+    this.id = this.id || uuid();
+  }
 }

@@ -7,4 +7,12 @@
       <p class="track-artist">{{ track.artist }}</p>
     </div>
   </div>
+
+  <h2>Top Artists</h2>
+  <div class="artist-grid">
+    <div *ngFor="let artist of topArtists | slice:0:5" class="artist-item">
+      <img [src]="artist.image" [alt]="artist.name">
+      <h3>{{ artist.name }}</h3>
+    </div>
+  </div>
 </div>

@@ -17,9 +17,31 @@
   </div>
 
   <!-- User profile. Third Section -->
-  <div class="user-icon">
-    <i class="fa fa-user" *ngIf="!isAuthenticated()" routerLink="/auth/login"></i>
-    <!-- Temporary button for testing -->
-    <button *ngIf="isAuthenticated()" (click)="logout()">logout</button>
-  </div>
+  <div class="user-profile">
+      @if (!isAuthenticated()) {
+        <button class="sign-up" routerLink="/auth/register">Sign up</button>
+        <button class="log-in" routerLink="/auth/login">Log in</button>
+      } @else {
+        <div class="profile-dropdown">
+          <button class="profile-icon" (click)="toggleDropdown()">
+            <i class="fa fa-user"></i>
+          </button>
+          <div class="dropdown-menu" *ngIf="dropdownOpen">
+            <span class="username">{{ extractUsername() }}</span>
+            <a routerLink="/profile">
+              <i class="fa fa-user-circle"></i>
+              Profile
+            </a>
+            <a routerLink="/settings">
+              <i class="fa fa-cog"></i>
+              Settings
+            </a>
+            <button (click)="logout()">
+              <i class="fa fa-sign-out-alt" style="color: red;"></i>
+              Logout
+            </button>
+          </div>
+        </div>
+      }
+    </div>
 </header>

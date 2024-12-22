@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject } from '@angular/core';
-import { Router, RouterLink } from '@angular/router';
+import { Component, HostListener, inject } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 
 @Component({
@@ -15,14 +15,29 @@ import { AuthService } from '../../services/auth.service';
 })
 export class NavbarComponent {
   authService = inject(AuthService);
-  router = inject(Router);
 
-  isAuthenticated() {
+  dropdownOpen = false;
+
+  toggleDropdown(): void {
+    this.dropdownOpen = !this.dropdownOpen;
+  }
+
+  isAuthenticated(): boolean {
     return this.authService.isAuthenticated();
   }
 
-  logout() {
+  logout(): void {
     this.authService.logout();
-    this.router.navigate(['/']);
+  }
+
+  extractUsername(): string {
+    return this.authService.extractUsername();
+  }
+
+  @HostListener('document:click', ['$event'])
+  onDocumentClick(event: MouseEvent): void {
+    const target = event.target as HTMLElement;
+    // Close dropdown if clicked outside
+    if (!target.closest('.profile-dropdown')) this.dropdownOpen = false;
   }
 }

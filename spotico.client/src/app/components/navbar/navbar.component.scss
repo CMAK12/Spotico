@@ -87,14 +87,104 @@
     color: var(--font-color);
 }
 
-.navbar .user-icon {
-    color: white;
-    flex: 1;
-    font-size: 24px;
+.sign-up, .log-in {
+    font-family: 'Geist Mono', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: #b3b3b3;
+    background: none;
+    border: none;
+    padding: 10px 25px;
+    transition: all 0.3s ease;
+    height: 48px;
+    line-height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.navbar .user-icon i {
-    display: flex;
-    justify-content: right;
-    cursor: pointer;
+.sign-up:hover, .log-in:hover {
+    font-size: 18px;
+    transform: scale(1.1);
+    transition: all 0.3s ease;
 }
+
+.log-in:active {
+    font-size: 16px;
+    transform: none;
+}
+
+.sign-up:hover {
+    color: white;
+}
+
+.sign-up:active {
+    color: #b3b3b3;
+}
+
+.log-in {
+    background-color: white;
+    border-radius: 32px;
+    color: black;
+}
+
+.user-profile {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    flex: 1;
+  }
+  
+  .profile-icon {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+  }
+  
+  .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: var(--element);
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .username {
+    display: flex;
+    justify-content: center;
+    font-family: 'Geist Mono', sans-serif;
+    font-size: 16px;
+    color: white;
+    font-weight: 600;
+  }
+
+  .dropdown-menu a, .dropdown-menu button {
+    color: white;
+    text-decoration: none;
+    font-family: 'Geist Mono', sans-serif;
+    font-size: 16px;
+    background: none;
+    border: none;
+    text-align: left;
+    padding: 8px;
+    border-radius: 4px;
+    transition: background 0.3s;
+  }
+
+  .dropdown-menu svg {
+    width: 12px;
+  }
+  
+  .dropdown-menu a:hover, .dropdown-menu button:hover {
+    background: rgba(255, 255, 255, 0.1);
+  }
+  
+  

@@ -51,6 +51,7 @@ h2 {
 
 .track-item:hover {
   background-color: #282828;
+  cursor: pointer;
 }
 
 .track-item img {
@@ -70,6 +71,70 @@ h2 {
 }
 
 .track-artist {
+  font-size: 14px;
+  color: #b3b3b3;
+}
+
+  .artist-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); /* Default 5 columns */
+  gap: 24px; /* Space between items */
+}
+
+@media (max-width: 1200px) {
+  .artist-grid {
+      grid-template-columns: repeat(4, 1fr); /* 4 columns for medium screens */
+  }
+}
+
+@media (max-width: 900px) {
+  .artist-grid {
+      grid-template-columns: repeat(3, 1fr); /* 3 columns for smaller screens */
+  }
+}
+
+@media (max-width: 600px) {
+  .artist-grid {
+      grid-template-columns: repeat(2, 1fr); /* 2 columns for mobile screens */
+  }
+}
+
+@media (max-width: 400px) {
+  .artist-grid {
+      grid-template-columns: 1fr; /* 1 column for very small screens */
+  }
+}
+
+.artist-item {
+  background-color: #181818;
+  padding: 16px;
+  border-radius: 8px;
+  text-align: center;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.artist-item:hover {
+  background-color: #282828;
+  transform: translateY(-5px); /* Slight lift on hover */
+  cursor: pointer;
+}
+
+.artist-item img {
+  width: 100%;
+  aspect-ratio: 1; /* Square images */
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 16px;
+}
+
+.artist-name {
+  font-size: 14px;
+  font-weight: bold;
+  color: #ffffff;
+  margin-bottom: 8px;
+}
+
+.artist-subtext {
   font-size: 14px;
   color: #b3b3b3;
 }

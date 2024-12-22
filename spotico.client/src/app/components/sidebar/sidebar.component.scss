@@ -18,6 +18,7 @@ nav ul {
     max-width: 100%;
     color: rgb(156 163 175);
     gap: 8px; /* distance between icon and text */
+    height: 23px;
     padding: 8px 0; /* idents for better reading */
     transition: 0.2s; /* smooth color transition */
 }
@@ -109,13 +110,15 @@ nav ul {
     padding: 8px;
     padding-right: 0;
     width: 100%;
-    background: none;   
+    background: none;
+    border-radius: 4px;
     transition: background 0.3s;
 }
 
 .sidebar .playlist-card:hover {
     background: var(--element);
     border-radius: 4px;
+    cursor: pointer;
     transition: background 0.3s;
 }
 

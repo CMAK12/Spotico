@@ -34,7 +34,6 @@ export class LoginComponent {
       this.authService.login(request).subscribe({
         next: () => {
           // If login is successful, navigate to the home page
-          console.log('Login successful');
           this.router.navigate(['/']);
         },
         error: (err) => {
