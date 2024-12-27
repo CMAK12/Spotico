@@ -1,4 +1,4 @@
-namespace Spotico.Core.Common.Enums;
+namespace Spotico.Domain.Common.Enums;
 
 public enum UserRole
 {
