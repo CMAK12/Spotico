@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Moq;
-using Spotico.Core.Models;
-using Spotico.Core.Stores;
+using Spotico.Domain.Models;
+using Spotico.Domain.Stores;
 using Spotico.Server.Controllers;
 using Spotico.Server.DTOs;
 

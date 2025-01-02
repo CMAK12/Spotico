@@ -1,7 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Moq;
-using Spotico.Core.Models;
-using Spotico.Core.Stores;
+using Spotico.Domain.Models;
+using Spotico.Domain.Stores;
+using Spotico.Infrastructure.Interfaces;
 using Spotico.Server.Controllers;
 using Spotico.Server.DTOs;
 
@@ -22,21 +23,22 @@ public class TrackControllerTests
                 {
                     Id = Guid.NewGuid(),
                     Title = "Test Track",
-                    Duration = 300,
-                    Artist = "Test Artist",
-                    Album = "Test Album"
+                    Duration = "1:30",
+                    ArtistId = Guid.NewGuid(),
+                    AlbumId = Guid.NewGuid()
                 },
                 new Track
                 {
                     Id = Guid.NewGuid(),
                     Title = "Test Track",
-                    Duration = 300,
-                    Artist = "Test Artist",
-                    Album = "Test Album"
+                    Duration = "1:30",
+                    ArtistId = Guid.NewGuid(),
+                    AlbumId = Guid.NewGuid()
                 }
             });
 
-        var controller = new TrackController(mockTrackStore.Object);
+        var mockMediaService = new Mock<IMediaService>();
+        var controller = new TrackController(mockTrackStore.Object, mockMediaService.Object);
 
         // Act
         var result = await controller.Get();
@@ -60,12 +62,13 @@ public class TrackControllerTests
             {
                 Id = trackId,
                 Title = "Test Track",
-                Duration = 300,
-                Artist = "Test Artist",
-                Album = "Test Album"
+                Duration = "1:30",
+                ArtistId = Guid.NewGuid(),
+                AlbumId = Guid.NewGuid()
             });
 
-        var controller = new TrackController(mockTrackStore.Object);
+        var mockMediaService = new Mock<IMediaService>();
+        var controller = new TrackController(mockTrackStore.Object, mockMediaService.Object);
 
         // Act
         var result = await controller.Get(trackId);
@@ -88,7 +91,8 @@ public class TrackControllerTests
             .Setup(repo => repo.GetByIdAsync(trackId))
             .ReturnsAsync(new Track());
 
-        var controller = new TrackController(mockTrackStore.Object);
+        var mockMediaService = new Mock<IMediaService>();
+        var controller = new TrackController(mockTrackStore.Object, mockMediaService.Object);
 
         // Act
         var result = await controller.Get(trackId);
@@ -99,7 +103,6 @@ public class TrackControllerTests
         Assert.Equal(200, okResult.StatusCode);
         Assert.NotEqual(trackId, track.Id);
         Assert.Null(track.Title);
-        Assert.Null(track.Artist);
     }
     
     [Fact]
@@ -109,12 +112,14 @@ public class TrackControllerTests
         var trackDto = new TrackDTO
         {
             Title = "Test Track",
-            Duration = 300,
-            Artist = "Test Artist",
-            Album = "Test Album"
+            Duration = "1:30",
+            ArtistId = Guid.NewGuid(),
+            File = null,
+            AlbumId = Guid.NewGuid()
         };
         var mockTrackStore = new Mock<ITrackStore>();
-        var controller = new TrackController(mockTrackStore.Object);
+        var mockMediaService = new Mock<IMediaService>();
+        var controller = new TrackController(mockTrackStore.Object, mockMediaService.Object);
 
         // Act
         await controller.Post(trackDto);
@@ -131,12 +136,13 @@ public class TrackControllerTests
         {
             Id = Guid.NewGuid(),
             Title = "Test Track",
-            Duration = 300,
-            Artist = "Test Artist",
-            Album = "Test Album"
+            Duration = "1:30",
+            ArtistId = Guid.NewGuid(),
+            AlbumId = Guid.NewGuid()
         };
         var mockTrackStore = new Mock<ITrackStore>();
-        var controller = new TrackController(mockTrackStore.Object);
+        var mockMediaService = new Mock<IMediaService>();
+        var controller = new TrackController(mockTrackStore.Object, mockMediaService.Object);
 
         // Act
         await controller.Put(track);
@@ -151,7 +157,8 @@ public class TrackControllerTests
         // Arrange
         var trackId = Guid.NewGuid();
         var mockTrackStore = new Mock<ITrackStore>();
-        var controller = new TrackController(mockTrackStore.Object);
+        var mockMediaService = new Mock<IMediaService>();
+        var controller = new TrackController(mockTrackStore.Object, mockMediaService.Object);
 
         // Act
         await controller.Delete(trackId);

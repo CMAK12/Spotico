@@ -2,10 +2,11 @@
 using System.Security.Claims;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
-using Spotico.Core.Database;
-using Spotico.Infrastructure;
+using Spotico.Domain.Database;
 using Moq;
-using Spotico.Core.Models;
+using Spotico.Domain.Models;
+using Spotico.Infrastructure;
+using Spotico.Infrastructure.Configuration;
 
 namespace Spotico.Tests;
 
@@ -42,7 +43,7 @@ public class TokenServiceTests
         mockOptions.Setup(o => o.Value).Returns(authOptions);
         
         // Act
-        var tokenService = new TokenService(dbContext, mockOptions.Object);
+        var tokenService = new TokenService(mockOptions.Object);
         var token = tokenService.GenerateToken(user);
         
         // Assert
@@ -80,7 +81,7 @@ public class TokenServiceTests
         mockOptions.Setup(o => o.Value).Returns(authOptions);
 
         // Act
-        var tokenService = new TokenService(dbContext, mockOptions.Object);
+        var tokenService = new TokenService(mockOptions.Object);
         var token = tokenService.GenerateToken(user);
         
         // Assert
