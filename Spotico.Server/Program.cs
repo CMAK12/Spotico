@@ -1,9 +1,10 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
-using Spotico.Core.Database;
-using Spotico.Core.Stores;
+using Spotico.Domain.Database;
+using Spotico.Domain.Stores;
 using Spotico.Infrastructure;
+using Spotico.Infrastructure.Configuration;
 using Spotico.Infrastructure.Interfaces;
 using Spotico.Persistence;
 
@@ -16,10 +17,14 @@ builder.Services.Configure<AuthOptions>(configuration.GetSection("Auth"));
 builder.Services.AddControllers();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddScoped<ITokenService, TokenService>();
+// Repositories
 builder.Services.AddScoped<IUserStore, UserRepository>();
 builder.Services.AddScoped<IPlaylistStore, PlaylistRepository>();
+builder.Services.AddScoped<IAlbumStore, AlbumRepository>();
 builder.Services.AddScoped<ITrackStore, TrackRepository>();
+// Services
+builder.Services.AddScoped<ITokenService, TokenService>();
+builder.Services.AddSingleton<IMediaService, MediaService>();
 
 builder.Services.AddCors();
 
