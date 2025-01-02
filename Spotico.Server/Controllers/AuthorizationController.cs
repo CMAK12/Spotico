@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
-using Spotico.Core.Database;
-using Spotico.Core.Models;
+using Spotico.Domain.Database;
+using Spotico.Domain.Models;
 using Spotico.Infrastructure.Interfaces;
 using Spotico.Server.DTOs;
 
@@ -31,6 +31,7 @@ public class AuthorizationController : ControllerBase
         return Ok(new { access_token = token });
     }
      
+    [NonAction]
     private User ValidateUserCredentials(LoginDTO form)
     {
         var user = _db.Users

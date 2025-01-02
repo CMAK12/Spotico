@@ -1,7 +1,8 @@
 ﻿using Mapster;
 using Microsoft.AspNetCore.Mvc;
-using Spotico.Core.Models;
-using Spotico.Core.Stores;
+using Spotico.Domain.Models;
+using Spotico.Domain.Stores;
+using Spotico.Infrastructure.Interfaces;
 using Spotico.Server.DTOs;
 
 namespace Spotico.Server.Controllers;
@@ -11,10 +12,12 @@ namespace Spotico.Server.Controllers;
 public class TrackController : ControllerBase
 {
     private readonly ITrackStore _trackStore;
+    private readonly IMediaService _mediaService;
     
-    public TrackController(ITrackStore trackStore)
+    public TrackController(ITrackStore trackStore, IMediaService mediaService)
     {
         _trackStore = trackStore;
+        _mediaService = mediaService;
     }
     
     [HttpGet]
@@ -35,6 +38,10 @@ public class TrackController : ControllerBase
     public async Task Post(TrackDTO trackDto)
     {
         var track = trackDto.Adapt<Track>();
+        // Upload the track file and get a file path
+        var filePath = await _mediaService.UploadTrackAsync(trackDto.File);
+        track.TrackPath = filePath;
+        
         await _trackStore.AddAsync(track);
     }
     

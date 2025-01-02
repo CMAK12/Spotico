@@ -3,9 +3,8 @@
 public class TrackDTO
 {
     public string Title { get; set; }
-    public string Artist { get; set; }
-    public string Album { get; set; }
-    // Temporary without a song file
-    public float Duration { get; set; }
-    public string Cover { get; set; }
+    public Guid ArtistId { get; set; }
+    public IFormFile File { get; set; }
+    public string Duration { get; set; }
+    public Guid AlbumId { get; set; }
 }
