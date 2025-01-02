@@ -58,9 +58,11 @@ nav ul {
     border-radius: 8px;
     margin: 8px;
     margin-top: 0;
-    height: 89vh;
+    height: 89vh; /* Ensure a fixed height */
+    max-height: 89vh; /* Prevents sidebar from growing beyond viewport */
     padding: 20px;
     box-sizing: border-box;
+    overflow-y: auto; /* Enables scrolling when content overflows */
 }
 
 .sidebar section {

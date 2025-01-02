@@ -7,12 +7,19 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <PackageReference Include="Microsoft.AspNetCore.Http.Features" Version="6.0.0-preview.4.21253.5" />
       <PackageReference Include="Microsoft.IdentityModel.Tokens" Version="8.3.0" />
       <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="8.3.0" />
     </ItemGroup>
 
     <ItemGroup>
       <ProjectReference Include="..\Spotico.Domain\Spotico.Domain.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Reference Include="Spotico.Server">
+        <HintPath>..\Spotico.Tests\bin\Debug\net8.0\Spotico.Server.dll</HintPath>
+      </Reference>
     </ItemGroup>
 
 </Project>

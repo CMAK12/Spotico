@@ -18,10 +18,7 @@
 
   <!-- User profile. Third Section -->
   <div class="user-profile">
-      @if (!isAuthenticated()) {
-        <button class="sign-up" routerLink="/auth/register">Sign up</button>
-        <button class="log-in" routerLink="/auth/login">Log in</button>
-      } @else {
+      @if (authStatus$ | async) {
         <div class="profile-dropdown">
           <button class="profile-icon" (click)="toggleDropdown()">
             <i class="fa fa-user"></i>
@@ -42,6 +39,9 @@
             </button>
           </div>
         </div>
+      } @else {
+        <button class="sign-up" routerLink="/auth/register">Sign up</button>
+        <button class="log-in" routerLink="/auth/login">Log in</button>
       }
     </div>
 </header>

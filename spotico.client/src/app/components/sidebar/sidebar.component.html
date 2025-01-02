@@ -14,7 +14,7 @@
       </nav>
 
       <div class="playlist-actions non-selectable">
-        <button>
+        <button (click)="createPlaylist()" *ngIf="authStatus$ | async">
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-square-plus mr-4"><rect width="18" height="18" x="3" y="3" rx="2"></rect><path d="M8 12h8"></path><path d="M12 8v8"></path></svg>
           Create Playlist
           </button>
@@ -37,18 +37,22 @@
           </div>
       </div>
 
-      <div class="playlist-card">
-        <div class="playlist-image">
-          <img aria-hidden="true" style="width: 48px; height: 48px;" draggable="false" loading="eager" src="https://mosaic.scdn.co/60/ab67616d00001e0212498a55b2c82101628e72bcab67616d00001e0254d374dbb7b252ff601baf2eab67616d00001e02aa34e56c440a5e8790b524c3ab67616d00001e02b1f8da74f225fa1225cdface" data-testid="entity-image" alt="Куртка Кобейн" class="mMx2LUixlnN_Fu45JpFB iJp40IxKg6emF6KYJ414 Yn2Ei5QZn19gria6LjZj" srcset="https://mosaic.scdn.co/60/ab67616d00001e0212498a55b2c82101628e72bcab67616d00001e0254d374dbb7b252ff601baf2eab67616d00001e02aa34e56c440a5e8790b524c3ab67616d00001e02b1f8da74f225fa1225cdface 30w, https://mosaic.scdn.co/60/ab67616d00001e0212498a55b2c82101628e72bcab67616d00001e0254d374dbb7b252ff601baf2eab67616d00001e02aa34e56c440a5e8790b524c3ab67616d00001e02b1f8da74f225fa1225cdface 60w">
-        </div>
-        <div class="playlist-info">
-          <div class="title">
-            Kurt Cobain 
+      @for (playlist of playlists; track $index) {
+        <div class="playlist-card" [routerLink]="['/playlist', playlist.id]" *ngIf="authStatus$ | async">
+          <div class="playlist-image">
+            <img aria-hidden="true" style="width: 48px; height: 48px;" draggable="false" loading="eager" 
+              src="https://mosaic.scdn.co/60/ab67616d00001e0212498a55b2c82101628e72bcab67616d00001e0254d374dbb7b252ff601baf2eab67616d00001e02aa34e56c440a5e8790b524c3ab67616d00001e02b1f8da74f225fa1225cdface" 
+              data-testid="entity-image" alt="{{ playlist.title }}" class="mMx2LUixlnN_Fu45JpFB iJp40IxKg6emF6KYJ414 Yn2Ei5QZn19gria6LjZj" srcset="https://mosaic.scdn.co/60/ab67616d00001e0212498a55b2c82101628e72bcab67616d00001e0254d374dbb7b252ff601baf2eab67616d00001e02aa34e56c440a5e8790b524c3ab67616d00001e02b1f8da74f225fa1225cdface 30w, https://mosaic.scdn.co/60/ab67616d00001e0212498a55b2c82101628e72bcab67616d00001e0254d374dbb7b252ff601baf2eab67616d00001e02aa34e56c440a5e8790b524c3ab67616d00001e02b1f8da74f225fa1225cdface 60w">
           </div>
-          <div class="created-by">
-            Playlist • User
-          </div>
+            <div class="playlist-info">
+              <div class="title">
+                {{ playlist.title }}
+              </div>
+              <div class="created-by">
+                Playlist • {{ usernames[playlist.createdById] || 'Loading...' }}
+              </div>
+            </div>
         </div>
-      </div>
+      }
     </section>
   </aside>

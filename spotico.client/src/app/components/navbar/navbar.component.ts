@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, HostListener, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, HostListener, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 
@@ -11,19 +11,17 @@ import { AuthService } from '../../services/auth.service';
     RouterLink
   ],
   templateUrl: './navbar.component.html',
-  styleUrl: './navbar.component.scss'
+  styleUrl: './navbar.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class NavbarComponent {
-  authService = inject(AuthService);
+  private authService = inject(AuthService);
 
   dropdownOpen = false;
+  authStatus$ = this.authService.authStatus$;
 
   toggleDropdown(): void {
     this.dropdownOpen = !this.dropdownOpen;
-  }
-
-  isAuthenticated(): boolean {
-    return this.authService.isAuthenticated();
   }
 
   logout(): void {

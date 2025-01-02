@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Spotico.Core.Database;
-using Spotico.Core.Models;
-using Spotico.Core.Stores;
+using Spotico.Domain.Database;
+using Spotico.Domain.Models;
+using Spotico.Domain.Stores;
 
 namespace Spotico.Persistence;
 
@@ -14,7 +14,7 @@ public class PlaylistRepository : IPlaylistStore
         _db = db;
     }
     
-    public async Task<List<Playlist>> GetAsync()
+    public async Task<IEnumerable<Playlist>> GetAsync()
     {
         return await _db.Playlists.ToListAsync();
     }
@@ -22,7 +22,7 @@ public class PlaylistRepository : IPlaylistStore
     public async Task<Playlist> GetByIdAsync(Guid id)
     {
         var identifiedPlaylist = await _db.Playlists.FindAsync(id);
-        
+    
         return identifiedPlaylist ?? new Playlist();
     }
 

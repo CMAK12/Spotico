@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Moq;
-using Spotico.Core.Models;
-using Spotico.Core.Stores;
+using Spotico.Domain.Models;
+using Spotico.Domain.Stores;
 using Spotico.Server.Controllers;
 using Spotico.Server.DTOs;
 
@@ -23,8 +23,8 @@ public class PlaylistControllerTests
                     Id = Guid.NewGuid(),
                     Title = "Test Playlist",
                     Description = "Test Description",
-                    Tracks = new List<Track>(),
-                    CreatedBy = Guid.NewGuid().ToString(),
+                    TrackIds = new List<Guid>(),
+                    CreatedBy = new User { Id = Guid.NewGuid() },
                     IsPublic = true
                 },
                 new Playlist
@@ -32,8 +32,8 @@ public class PlaylistControllerTests
                     Id = Guid.NewGuid(),
                     Title = "Test Playlist",
                     Description = "Test Description",
-                    Tracks = new List<Track>(),
-                    CreatedBy = Guid.NewGuid().ToString(),
+                    TrackIds = new List<Guid>(),
+                    CreatedBy = new User { Id = Guid.NewGuid() },
                     IsPublic = true
                 }
             });
@@ -63,8 +63,8 @@ public class PlaylistControllerTests
                 Id = playlistId,
                 Title = "Test Playlist",
                 Description = "Test Description",
-                Tracks = new List<Track>(),
-                CreatedBy = Guid.NewGuid().ToString(),
+                TrackIds = new List<Guid>(),
+                CreatedBy = new User { Id = Guid.NewGuid() },
                 IsPublic = true
             });
 
@@ -113,7 +113,7 @@ public class PlaylistControllerTests
         {
             Title = "Test Playlist",
             Description = "Test Description",
-            CreatedBy = Guid.NewGuid().ToString(),
+            CreatedById = Guid.NewGuid(),
             IsPublic = true
         };
         var mockPlaylistStore = new Mock<IPlaylistStore>();
@@ -135,7 +135,7 @@ public class PlaylistControllerTests
             Id = Guid.NewGuid(),
             Title = "Test Playlist",
             Description = "Test Description",
-            CreatedBy = Guid.NewGuid().ToString(),
+            CreatedBy = new User { Id = Guid.NewGuid() },
             IsPublic = true
         };
         var mockPlaylistStore = new Mock<IPlaylistStore>();
