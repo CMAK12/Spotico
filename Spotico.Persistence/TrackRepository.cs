@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Spotico.Core.Database;
-using Spotico.Core.Models;
-using Spotico.Core.Stores;
+using Spotico.Domain.Database;
+using Spotico.Domain.Models;
+using Spotico.Domain.Stores;
 
 namespace Spotico.Persistence;
 
@@ -14,9 +14,9 @@ public class TrackRepository : ITrackStore
         _db = db;
     }
     
-    public Task<List<Track>> GetAsync()
+    public async Task<IEnumerable<Track>> GetAsync()
     {
-        return _db.Tracks.ToListAsync();
+        return await _db.Tracks.ToListAsync();
     }
 
     public async Task<Track> GetByIdAsync(Guid id)
