@@ -1,5 +1,5 @@
 import { CommonModule, SlicePipe } from '@angular/common';
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
   selector: 'app-home',
@@ -9,7 +9,8 @@ import { Component } from '@angular/core';
     SlicePipe
   ],
   templateUrl: './home.component.html',
-  styleUrl: './home.component.scss'
+  styleUrl: './home.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HomeComponent {
   recentlyPlayed = [

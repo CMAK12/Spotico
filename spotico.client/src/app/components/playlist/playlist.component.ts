@@ -20,7 +20,9 @@ export class PlaylistComponent implements OnInit {
   playlist: Playlist;
 
   ngOnInit() {
+    // Get the id from the URL
     const id = this.route.snapshot.paramMap.get('id');
+    // Get the playlist by the id
     this.playlistService.getPlaylist(id).subscribe((playlist: Playlist) =>
       this.playlist = playlist
     );

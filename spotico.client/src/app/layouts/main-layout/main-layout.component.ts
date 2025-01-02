@@ -12,7 +12,7 @@ import { RouterOutlet } from '@angular/router';
     RouterOutlet
   ],
   templateUrl: './main-layout.component.html',
-  styleUrl: './main-layout.component.scss'
+  styleUrl: './main-layout.component.scss',
 })
 export class MainLayoutComponent {
 

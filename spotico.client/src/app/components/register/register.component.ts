@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { CustomerService } from '../../services/customer.service';
 import { UserDTO } from '../../DTOs/user.dto';
@@ -12,12 +12,13 @@ import { AuthService } from '../../services/auth.service';
     ReactiveFormsModule
   ],
   templateUrl: './register.component.html',
-  styleUrl: './register.component.scss'
+  styleUrl: './register.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class RegisterComponent {
-  customerService = inject(CustomerService);
-  authService = inject(AuthService);
-  router = inject(Router);
+  private customerService = inject(CustomerService);
+  private authService = inject(AuthService);
+  private router = inject(Router);
 
   registerForm = new FormGroup({
     username: new FormControl(''),
