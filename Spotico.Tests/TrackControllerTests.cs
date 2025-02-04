@@ -23,7 +23,7 @@ public class TrackControllerTests
                 {
                     Id = Guid.NewGuid(),
                     Title = "Test Track",
-                    Duration = "1:30",
+                    Duration = 745.2,
                     ArtistId = Guid.NewGuid(),
                     AlbumId = Guid.NewGuid()
                 },
@@ -31,7 +31,7 @@ public class TrackControllerTests
                 {
                     Id = Guid.NewGuid(),
                     Title = "Test Track",
-                    Duration = "1:30",
+                    Duration = 153.2,
                     ArtistId = Guid.NewGuid(),
                     AlbumId = Guid.NewGuid()
                 }
@@ -62,7 +62,7 @@ public class TrackControllerTests
             {
                 Id = trackId,
                 Title = "Test Track",
-                Duration = "1:30",
+                Duration = 12.4,
                 ArtistId = Guid.NewGuid(),
                 AlbumId = Guid.NewGuid()
             });
@@ -112,7 +112,7 @@ public class TrackControllerTests
         var trackDto = new TrackDTO
         {
             Title = "Test Track",
-            Duration = "1:30",
+            Duration = 2.3,
             ArtistId = Guid.NewGuid(),
             File = null,
             AlbumId = Guid.NewGuid()
@@ -136,7 +136,7 @@ public class TrackControllerTests
         {
             Id = Guid.NewGuid(),
             Title = "Test Track",
-            Duration = "1:30",
+            Duration = 24.3,
             ArtistId = Guid.NewGuid(),
             AlbumId = Guid.NewGuid()
         };

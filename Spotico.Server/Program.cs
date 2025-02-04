@@ -77,6 +77,8 @@ app.UseCors(builder => builder
     .AllowCredentials()
 );
 
+app.UseRouting();
+
 app.UseAuthentication();
 app.UseAuthorization();
 

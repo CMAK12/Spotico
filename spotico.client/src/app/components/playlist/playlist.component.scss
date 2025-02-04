@@ -1,31 +1,35 @@
 .playlist-container {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    color: white;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  color: white;
 }
 
 .playlist-header {
-    display: flex;
-    align-items: center;
-    padding: 30px;
-    background: linear-gradient(180deg, rgba(40, 40, 40, 1) 0%, rgba(26, 26, 26, 0) 100%);
-  }
+  display: flex;
+  align-items: center;
+  padding: 30px;
+  background: linear-gradient(
+    180deg,
+    rgba(40, 40, 40, 1) 0%,
+    rgba(26, 26, 26, 0) 100%
+  );
+}
 
 .playlist-header img {
-    width: 250px;
-    height: 250px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.2);
-  }
+  width: 250px;
+  height: 250px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.2);
+}
 
 .playlist-info {
-    padding: 10px;
-    width: 100%;
+  padding: 10px 30px;
+  width: 100%;
 }
 
 .playlist-info .playlist-title {
-  font-size: 5rem;
+  font-size: 4.5rem;
   font-weight: bold;
   line-height: 1.2;
   margin: 10px 0;
@@ -33,129 +37,132 @@
 }
 
 .actions {
-    display: flex;
-    gap: 10px;
-    padding: 20px;
-    justify-content: start;
-    align-items: center;
-    margin-top: 10px;
+  display: flex;
+  gap: 10px;
+  padding: 0 20px;
+  justify-content: start;
+  align-items: center;
+  margin-top: 10px;
 }
 
 .actions .btn {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    border: none;
-    cursor: pointer;
-    transition: transform 0.2s, background-color 0.2s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  transition:
+    transform 0.2s,
+    background-color 0.2s;
 }
 
 .actions .play-button {
-    font-size: 18px;
-    background-color: #1db954;
+  font-size: 22px;
+  background-color: #1db954;
 }
 
 .actions .share-button {
-    color: #696060;
-    font-size: 22px;
-    background: none;
+  color: #696060;
+  font-size: 28px;
+  background: none;
 }
 
 .actions .context-menu {
-    color: #696060;
-    font-size: 18px;
-    background: none;
+  color: #696060;
+  font-size: 18px;
+  background: none;
 }
 
 .actions .btn:hover {
-    transform: scale(1.1);
+  transform: scale(1.1);
 }
 
 .actions .play-button:hover {
-    background-color: #1ed760;
+  background-color: #1ed760;
 }
 
-.actions .share-button:hover, 
+.actions .share-button:hover,
 .actions .context-menu:hover {
-    background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(255, 255, 255, 0.1);
 }
-  
+
 .track-list-container {
-    margin: 20px;
-  }
-  
-  .track-list {
-    width: 100%;
-    border-collapse: collapse;
-    color: #fff;
-  }
-  
-  .track-list thead {
-    border-bottom: 1px solid #333;
-  }
-  
-  .track-list thead th {
-    text-align: left;
-    padding: 10px 15px;
-    font-size: 14px;
-    font-weight: normal;
-    color: #b3b3b3;
-  }
-  
-  .track-list tbody tr {
-    border-bottom: 1px solid #333;
-    cursor: pointer;
-    transition: background-color 0.2s ease;
-  }
-  
-  .track-list tbody tr:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-  }
-  
-  .track-list tbody td {
-    padding: 10px 15px;
-    font-size: 14px;
-    color: #b3b3b3;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-  
-  .track-list tbody td:first-child {
-    width: 30px;
-    text-align: center;
-    color: #b3b3b3;
-  }
-  
-  .track-list .icon-duration {
-    fill: #b3b3b3;
-    width: 16px;
-    height: 16px;
-  }
+  margin: 20px;
+}
+
+.track-list {
+  width: 100%;
+  border-collapse: collapse;
+  color: #fff;
+}
+
+.track-list thead {
+  border-bottom: 1px solid #333;
+}
+
+.track-list thead th {
+  text-align: left;
+  padding: 10px 15px;
+  font-size: 14px;
+  font-weight: normal;
+  color: #b3b3b3;
+}
+
+.track-list tbody tr {
+  border-bottom: 1px solid #333;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.track-list tbody tr:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.track-list tbody td {
+  padding: 10px 15px;
+  font-size: 14px;
+  color: #b3b3b3;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.track-list tbody td:first-child {
+  width: 30px;
+  text-align: center;
+  color: #b3b3b3;
+}
+
+.track-list .icon-duration {
+  fill: #b3b3b3;
+  width: 16px;
+  height: 16px;
+}
 
 .track-info {
-    display: flex;
-    align-items: center;
-    gap: 5px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
 }
 
 .track-image {
-    border-radius: 6px;
-    width: 40px;
-    height: 40px;
+  border-radius: 6px;
+  width: 40px;
+  height: 40px;
 }
 .track-details {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
+  display: flex;
+  flex-direction: column;
+  padding: 0 5px;
+  gap: 2px;
 }
 
 .track-details .track-title {
-    color: white;
+  color: white;
 }
 .track-details .track-element {
-    margin: 0;
+  margin: 0;
 }

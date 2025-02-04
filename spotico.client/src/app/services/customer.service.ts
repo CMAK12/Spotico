@@ -4,28 +4,26 @@ import { User } from '../models/user.model';
 import { Observable } from 'rxjs';
 import { UserDTO } from '../DTOs/user.dto';
 
+const API_URL = 'http://localhost:5032/api/customer';
+
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class CustomerService {
-  private apiUrl = 'http://localhost:5032/api/customer'; // URL to backend API
+  constructor(private http: HttpClient) {}
 
-  constructor(
-    private http: HttpClient
-  ) { }
-
-  getCustomer(id: string) : Observable<User> {
+  getCustomer(id: string): Observable<User> {
     // Send a GET request to API to get the customer by ID
-    return this.http.get<User>(`${this.apiUrl}/${id}`);
+    return this.http.get<User>(`${API_URL}/${id}`);
   }
 
-  postCustomer(customer: UserDTO) : Observable<void> {
+  postCustomer(customer: UserDTO): Observable<void> {
     // Send a POST request to API to create a new customer
-    return this.http.post<void>(this.apiUrl, customer);
+    return this.http.post<void>(API_URL, customer);
   }
 
-  deleteCustomer(id: string) : Observable<void> {
+  deleteCustomer(id: string): Observable<void> {
     // Send a DELETE request to API to delete the customer by ID
-    return this.http.delete<void>(`${this.apiUrl}/${id}`);
+    return this.http.delete<void>(`${API_URL}/${id}`);
   }
 }

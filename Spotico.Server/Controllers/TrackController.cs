@@ -39,8 +39,7 @@ public class TrackController : ControllerBase
     {
         var track = trackDto.Adapt<Track>();
         // Upload the track file and get a file path
-        var filePath = await _mediaService.UploadTrackAsync(trackDto.File);
-        track.TrackPath = filePath;
+        track.TrackPath = await _mediaService.UploadTrackAsync(trackDto.File);
         
         await _trackStore.AddAsync(track);
     }

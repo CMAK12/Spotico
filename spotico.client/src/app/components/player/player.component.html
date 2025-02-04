@@ -1,0 +1,175 @@
+<div class="player-container">
+  @if (state().duration >= 1) {
+    <div class="song-info">
+      <img
+        [src]="state().playlist[state().currentTrackIndex].albumCoverUrl"
+        alt="Album Cover"
+        class="album-cover"
+      />
+      <div class="song-details">
+        <p class="song-name">
+          {{ state().playlist[state().currentTrackIndex].title }}
+        </p>
+        <p class="artist-name">
+          {{ state().playlist[state().currentTrackIndex].artist.username }}
+        </p>
+      </div>
+    </div>
+
+    <!-- Song progress bar and controller buttons -->
+    <div class="song-controller">
+      <!-- Play, Pause, Next, and Previous buttons -->
+      <div class="player-controller">
+        <button (click)="previousSong()" class="previous-button">
+          <i class="fa fa-backward" style="margin-right: 3px"></i>
+        </button>
+        <button
+          (click)="playAudio()"
+          *ngIf="!state().isPlaying"
+          class="play-button"
+        >
+          <i class="fa fa-play"></i>
+        </button>
+        <button
+          (click)="pauseAudio()"
+          *ngIf="state().isPlaying"
+          class="pause-button"
+        >
+          <i class="fa fa-pause"></i>
+        </button>
+        <button (click)="nextSong()" class="next-button">
+          <i class="fa fa-forward"></i>
+        </button>
+      </div>
+
+      <!-- Progress controller -->
+      <div class="progress-container">
+        <!-- Current time of the song -->
+        <p>{{ state().currentTime | timeFormat }}</p>
+
+        <!-- Slider for the song progress -->
+        <input
+          type="range"
+          class="slider"
+          min="0"
+          [max]="state().duration"
+          [value]="state().currentTime"
+          (input)="seekDuration($event)"
+          [ngStyle]="{
+            background:
+              'linear-gradient(to right, #fff ' +
+              (state().currentTime / state().duration) * 100 +
+              '%, #535353 ' +
+              (state().currentTime / state().duration) * 100 +
+              '%)',
+          }"
+        />
+
+        <!-- Total duration of the song -->
+        <p>{{ state().duration | timeFormat }}</p>
+      </div>
+    </div>
+  } @else {
+    <div class="song-info">
+      <!-- Empty song i fo -->
+    </div>
+
+    <!-- Song progress bar and controller buttons -->
+    <div class="song-controller">
+      <!-- Play, Pause, Next, and Previous buttons -->
+      <div class="player-controller">
+        <button class="previous-button">
+          <i class="fa fa-backward" style="margin-right: 3px"></i>
+        </button>
+        <button class="play-button">
+          <i class="fa fa-play"></i>
+        </button>
+        <button class="next-button">
+          <i class="fa fa-forward"></i>
+        </button>
+      </div>
+
+      <!-- Progress controller -->
+      <div class="progress-container">
+        <!-- Current time of the song -->
+        <p>-:--</p>
+
+        <!-- Slider for the song progress -->
+        <input
+          type="range"
+          class="slider"
+          min="0"
+          max="0"
+          [ngStyle]="{
+            background:
+              'linear-gradient(to right, #fff ' +
+              (state().currentTime / state().duration) * 100 +
+              '%, #535353 ' +
+              (state().currentTime / state().duration) * 100 +
+              '%)',
+          }"
+        />
+
+        <!-- Total duration of the song -->
+        <p>-:--</p>
+      </div>
+    </div>
+  }
+
+  <!-- Volume slider -->
+  <div class="song-additions">
+    <svg
+      data-encore-id="icon"
+      *ngIf="!isMuted && state().volume > 0"
+      (click)="toggleMute()"
+      role="presentation"
+      aria-label="Volume high"
+      aria-hidden="false"
+      id="volume-icon"
+      viewBox="0 0 16 16"
+      class="Svg-sc-ytk21e-0 kcUFwU"
+    >
+      <path
+        d="M9.741.85a.75.75 0 0 1 .375.65v13a.75.75 0 0 1-1.125.65l-6.925-4a3.642 3.642 0 0 1-1.33-4.967 3.639 3.639 0 0 1 1.33-1.332l6.925-4a.75.75 0 0 1 .75 0zm-6.924 5.3a2.139 2.139 0 0 0 0 3.7l5.8 3.35V2.8l-5.8 3.35zm8.683 4.29V5.56a2.75 2.75 0 0 1 0 4.88z"
+      ></path>
+      <path
+        d="M11.5 13.614a5.752 5.752 0 0 0 0-11.228v1.55a4.252 4.252 0 0 1 0 8.127v1.55z"
+      ></path>
+    </svg>
+    <svg
+      data-encore-id="icon"
+      *ngIf="isMuted || state().volume === 0"
+      (click)="toggleMute()"
+      role="presentation"
+      aria-label="Volume off"
+      aria-hidden="false"
+      id="volume-icon"
+      viewBox="0 0 16 16"
+      class="Svg-sc-ytk21e-0 kcUFwU"
+    >
+      <path
+        d="M13.86 5.47a.75.75 0 0 0-1.061 0l-1.47 1.47-1.47-1.47A.75.75 0 0 0 8.8 6.53L10.269 8l-1.47 1.47a.75.75 0 1 0 1.06 1.06l1.47-1.47 1.47 1.47a.75.75 0 0 0 1.06-1.06L12.39 8l1.47-1.47a.75.75 0 0 0 0-1.06z"
+      ></path>
+      <path
+        d="M10.116 1.5A.75.75 0 0 0 8.991.85l-6.925 4a3.642 3.642 0 0 0-1.33 4.967 3.639 3.639 0 0 0 1.33 1.332l6.925 4a.75.75 0 0 0 1.125-.649v-1.906a4.73 4.73 0 0 1-1.5-.694v1.3L2.817 9.852a2.141 2.141 0 0 1-.781-2.92c.187-.324.456-.594.78-.782l5.8-3.35v1.3c.45-.313.956-.55 1.5-.694V1.5z"
+      ></path>
+    </svg>
+
+    <input
+      type="range"
+      min="0"
+      max="100"
+      class="slider"
+      [value]="state().volume * 100"
+      (input)="setVolume($event)"
+      [ngStyle]="{
+        background:
+          'linear-gradient(to right, #fff ' +
+          state().volume * 100 +
+          '%, #535353 ' +
+          state().volume * 100 +
+          '%)',
+      }"
+    />
+  </div>
+</div>

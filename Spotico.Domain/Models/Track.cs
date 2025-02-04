@@ -1,5 +1,4 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
-using System.ComponentModel.DataAnnotations;
 
 namespace Spotico.Domain.Models;
 
@@ -9,8 +8,7 @@ public class Track
     [Column(TypeName = "VARCHAR(100)")]
     public string Title { get; set; }
     public string? TrackPath { get; set; }
-    [Column(TypeName = "VARCHAR(6)")]
-    public string Duration { get; set; }
+    public double Duration { get; set; }
     public int Views { get; set; }
     
     // Foreign keys

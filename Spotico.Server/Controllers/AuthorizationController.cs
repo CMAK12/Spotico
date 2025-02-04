@@ -23,7 +23,6 @@ public class AuthorizationController : ControllerBase
     public async Task<IActionResult> Login(LoginDTO request)
     {
         var user = ValidateUserCredentials(request);
-        
         if (user == null) return Unauthorized();
         
         var token = _tokenService.GenerateToken(user);
