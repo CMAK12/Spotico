@@ -1,8 +1,7 @@
 ﻿namespace Spotico.Server.DTOs;
 
-public class UserDTO
-{
-    public string Username { get; set; }
-    public string Email { get; set; }
-    public string Password { get; set; }
-}
+public class UserDTO(
+    string Username,
+    string Email,
+    string Password
+);
