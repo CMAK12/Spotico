@@ -7,6 +7,7 @@ using Spotico.Infrastructure;
 using Spotico.Infrastructure.Configuration;
 using Spotico.Infrastructure.Interfaces;
 using Spotico.Persistence;
+using StackExchange.Redis;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,6 +17,17 @@ builder.Services.Configure<AuthOptions>(configuration.GetSection("Auth"));
 
 builder.Services.AddControllers();
 builder.Services.AddSwaggerGen();
+
+// Redis
+builder.Services.AddSingleton<IConnectionMultiplexer>(sp =>
+    ConnectionMultiplexer.Connect(configuration.GetConnectionString("RedisConnection"))
+);
+
+// PostgreSQL
+builder.Services.AddDbContext<SpoticoDbContext>(options =>
+{
+    options.UseNpgsql(configuration.GetConnectionString("SqlConnection"));
+});
 
 // Repositories
 builder.Services.AddScoped<IUserStore, UserRepository>();
@@ -47,11 +59,6 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
         };
     });
 builder.Services.AddAuthorization();
-
-builder.Services.AddDbContext<SpoticoDbContext>(options =>
-{
-    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"));
-});
 
 var app = builder.Build();
 

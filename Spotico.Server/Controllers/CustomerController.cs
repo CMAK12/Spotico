@@ -32,6 +32,12 @@ public class CustomerController : ControllerBase
         await _userRepository.AddAsync(customer);
     }
     
+    [HttpPut]
+    public async Task Put(User user)
+    {
+        await _userRepository.UpdateAsync(user);
+    }
+    
     [HttpDelete("{id}")]
     public async Task Delete(Guid id)
     {

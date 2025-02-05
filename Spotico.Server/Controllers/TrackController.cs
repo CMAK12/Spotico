@@ -4,6 +4,7 @@ using Spotico.Domain.Models;
 using Spotico.Domain.Stores;
 using Spotico.Infrastructure.Interfaces;
 using Spotico.Server.DTOs;
+using System.IO;
 
 namespace Spotico.Server.Controllers;
 
@@ -14,7 +15,9 @@ public class TrackController : ControllerBase
     private readonly ITrackStore _trackStore;
     private readonly IMediaService _mediaService;
     
-    public TrackController(ITrackStore trackStore, IMediaService mediaService)
+    public TrackController(
+        ITrackStore trackStore, 
+        IMediaService mediaService)
     {
         _trackStore = trackStore;
         _mediaService = mediaService;
