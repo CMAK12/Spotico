@@ -69,7 +69,11 @@ public class AlbumControllerTests
     public async Task Post_ReturnsOkResult()
     {
         // Arrange
-        var album = new AlbumDTO { Title = "Test Album" };
+        var album = new AlbumDTO(
+            Title: "Test Album", 
+            ArtistId: Guid.NewGuid(),
+            CoverImage: null
+        );
 
         // Act
         var result = await _controller.Post(album);

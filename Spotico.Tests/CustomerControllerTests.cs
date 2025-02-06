@@ -60,12 +60,11 @@ public class CustomerControllerTests
     public async Task PostCustomer_ReturnsOk_WhenCustomerIsCreated()
     {
         // Arrange
-        var userDto = new UserDTO()
-        {
-            Email = "test@example.com",
-            Password = "string",
-            Username = "TestUser"
-        };
+        var userDto = new UserDTO(
+            Username: "test@example.com",
+            Email: "string",
+            Password: "TestUser"
+        );
         var mockUserStore = new Mock<IUserStore>();
         var controller = new CustomerController(mockUserStore.Object);
 
