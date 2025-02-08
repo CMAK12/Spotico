@@ -2,6 +2,7 @@
 using Spotico.Domain.Database;
 using Spotico.Domain.Stores;
 using Spotico.Domain.Models;
+using Spotico.Infrastructure.Interfaces;
 using StackExchange.Redis;
 
 namespace Spotico.Persistence;
@@ -10,13 +11,16 @@ public class UserRepository : IUserStore
 {
     private readonly SpoticoDbContext _db;
     private readonly IDatabase _redisDb;
+    private readonly IPasswordEncryptor _encryptor;
     
     public UserRepository(
         SpoticoDbContext db, 
-        IConnectionMultiplexer redis)
+        IConnectionMultiplexer redis,
+        IPasswordEncryptor encryptor)
     {
         _db = db;
         _redisDb = redis.GetDatabase();
+        _encryptor = encryptor;
     }
     
     public async Task<User> GetByIdAsync(Guid id)
@@ -40,6 +44,8 @@ public class UserRepository : IUserStore
     
     public async Task AddAsync(User user)
     {
+        user.Password = _encryptor.Generate(user.Password);
+        Console.WriteLine(user.Password);
         await _db.Users.AddAsync(user);
         await _db.SaveChangesAsync();
     }

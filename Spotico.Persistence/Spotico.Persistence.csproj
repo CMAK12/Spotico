@@ -8,6 +8,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\Spotico.Domain\Spotico.Domain.csproj" />
+      <ProjectReference Include="..\Spotico.Infrastructure\Spotico.Infrastructure.csproj" />
     </ItemGroup>
 
     <ItemGroup>

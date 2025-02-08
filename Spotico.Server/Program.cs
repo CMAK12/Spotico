@@ -35,8 +35,9 @@ builder.Services.AddScoped<IPlaylistStore, PlaylistRepository>();
 builder.Services.AddScoped<IAlbumStore, AlbumRepository>();
 builder.Services.AddScoped<ITrackStore, TrackRepository>();
 // Services
-builder.Services.AddScoped<ITokenService, TokenService>();
+builder.Services.AddSingleton<ITokenService, TokenService>();
 builder.Services.AddSingleton<IMediaService, MediaService>();
+builder.Services.AddSingleton<IPasswordEncryptor, PasswordEncryptor>();
 
 builder.Services.AddCors();
 

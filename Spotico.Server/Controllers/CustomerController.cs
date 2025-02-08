@@ -28,7 +28,7 @@ public class CustomerController : ControllerBase
     [HttpPost]
     public async Task Post(UserDTO user)
     {
-        var customer = user.Adapt<User>(); // Adapt is a Mapster method that maps properties from one object to another
+        var customer = user.Adapt<User>();
         await _userRepository.AddAsync(customer);
     }
     

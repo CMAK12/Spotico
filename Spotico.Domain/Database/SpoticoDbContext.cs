@@ -37,7 +37,7 @@ public class SpoticoDbContext : DbContext
                 Id = userId,
                 Username = "user",
                 Email = "user@gmail.com",
-                Password = "user",
+                Password = "$2a$11$/KFp1kzp86HDW4Sbb1QeXOrmHLs2oNy2JwPFGY.To82L2/Ww1rnBS", // Encrypted "user"
                 Bio = "This is the default user.",
                 Role = nameof(UserRole.User)
             },
@@ -45,7 +45,7 @@ public class SpoticoDbContext : DbContext
                 Id = adminId,
                 Username = "admin",
                 Email = "admin@gmail.com",
-                Password = "admin",
+                Password = "$2a$11$nCLlbQ45OMfL.uuEtmucLOd74FNUNoS6jEUks6gPbzTzn52F4EDpC", // Encrypted "admin"
                 Bio = "This is the admin user.",
                 Role = nameof(UserRole.Admin)
             },
@@ -53,7 +53,7 @@ public class SpoticoDbContext : DbContext
                 Id = artistId,
                 Username = "artist",
                 Email = "artist@gmail.com",
-                Password = "artist",
+                Password = "$2a$11$SAmCUGu.oVf5XkCsU1WRO.AzGh6C07y5Jth4xa.ywfCOzMu8vDxJO", // Encrypted "artist"
                 Bio = "This is the artist.",
                 Role = nameof(UserRole.Author)
             }
